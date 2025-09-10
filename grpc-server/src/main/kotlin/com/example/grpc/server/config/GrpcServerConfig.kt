@@ -18,9 +18,6 @@ class GrpcServerConfig {
     @Value("\${grpc.server.port:50051}")
     private val port: Int = 0
 
-    @Value("\${grpc.server.host:localhost}")
-    private val host: String = ""
-
     @Value("\${grpc.server.thread-pool.size:10}")
     private val threadPoolSize: Int = 0
 
@@ -31,7 +28,7 @@ class GrpcServerConfig {
      */
     @Bean
     fun grpcServer(@Autowired grpcServices: List<BindableService>): GrpcServer {
-        println("初始化gRPC服务器，主机: $host，端口: $port，服务数量: \${grpcServices.size}，线程池大小: $threadPoolSize")
+        println("初始化gRPC服务器，端口: $port，服务数量: \${grpcServices.size}，线程池大小: $threadPoolSize")
         return GrpcServer(port, grpcServices, threadPoolSize)
     }
 }

@@ -4,7 +4,6 @@ server:
 grpc:
   server:
     port: 50051
-    host: localhost
     # 线程池配置
     thread-pool:
       size: 10
